@@ -23,7 +23,7 @@ Scheduler::Application.configure do
   config.serve_static_files = false
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  # config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -55,7 +55,7 @@ Scheduler::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = "http://assets.example.com"
+  # config.action_controller.asset_host = "%scheduler.domain%"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -77,4 +77,17 @@ Scheduler::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.delivery_method = ENV['mail_transport']
+  
+  config.action_mailer.smtp_settings = {
+    address:              ENV['mail_address']
+    port:                 ENV['mail_port']
+    domain:               ENV['mail_domain']
+    user_name:            ENV['mail_user_name']
+    password:             ENV['mail_password']
+    authentication:       ENV['mail_authentication']
+    openssl_verify_mode:  ENV['mail_openssl_verify_mode']
+    enable_starttls_auto: ENV['mail_enable_starttls_auto']
+  }
 end

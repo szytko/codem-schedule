@@ -11,3 +11,5 @@ Gemfile.lock
 node_modules/
 .ruby-version
 .ruby-gemset
+config/secrets.yml
+config/database.yml
