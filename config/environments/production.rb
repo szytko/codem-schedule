@@ -79,15 +79,15 @@ Scheduler::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.delivery_method = ENV['mail_transport']
-  
+
   config.action_mailer.smtp_settings = {
-    address:              ENV['mail_address']
-    port:                 ENV['mail_port']
-    domain:               ENV['mail_domain']
-    user_name:            ENV['mail_user_name']
-    password:             ENV['mail_password']
-    authentication:       ENV['mail_authentication']
-    openssl_verify_mode:  ENV['mail_openssl_verify_mode']
+    address: ENV['mail_address'],
+    port: ENV['mail_port'],
+    domain: ENV['mail_domain'],
+    user_name: ENV['mail_user_name'],
+    password: ENV['mail_password'],
+    authentication: ENV['mail_authentication'],
+    openssl_verify_mode: ENV['mail_openssl_verify_mode'],
     enable_starttls_auto: ENV['mail_enable_starttls_auto']
   }
 end
